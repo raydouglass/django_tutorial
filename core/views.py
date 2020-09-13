@@ -1,6 +1,9 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
+from rest_framework import viewsets
+from rest_framework import permissions
+from core.serializers import AuthorSerializer, BookSerializer
 
 from .models import Author, Book, BookForm
 
@@ -32,3 +35,13 @@ def book_form(request):
         form = BookForm
 
     return render(request, 'form.html', {'form': form})
+
+
+class AuthorViewSet(viewsets.ModelViewSet):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all().order_by('-year')
+    serializer_class = BookSerializer
+
