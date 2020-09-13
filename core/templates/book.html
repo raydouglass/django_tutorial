@@ -1,0 +1,11 @@
+<html>
+<head><title>{{ book }}</title></head>
+<h1>{{ book }}</h1>
+<h2>Authors</h2>
+<ul>
+    {% for author in book.authors.all %}
+        <li>{{ author }}</li>
+    {% endfor %}
+</ul>
+
+</html>
