@@ -9,7 +9,10 @@ class Author(models.Model):
     birth_date = models.DateField(default=None, null=True, blank=True)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}, birth_date={self.birth_date}"
+        if self.birth_date:
+            return f"{self.first_name} {self.last_name} ({self.birth_date})"
+        else:
+            return f"{self.first_name} {self.last_name}"
 
 
 class Book(models.Model):

@@ -1,0 +1,29 @@
+<html>
+<head><title>Authors & Books</title></head>
+<h1>Books</h1>
+<table border>
+    <thead>
+    <tr>
+        <td>Title</td>
+        <td>Year</td>
+        <td>Authors</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.year }}</td>
+            <td>
+                <ul>
+                    {% for author in book.authors.all %}
+                        <li>{{ author }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</html>
