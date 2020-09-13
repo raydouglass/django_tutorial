@@ -32,3 +32,4 @@
 9. rest api
     * `pip install django-rest-framework`
     * settings
+    * `curl -XPOST -H "Content-Type: application/json" -d '{"title": "Warrior", "year": 2004, "authors":[1]}' http://localhost:8000/api/books/`
