@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 
 # Create your models here.
@@ -25,3 +26,9 @@ class Book(models.Model):
 
     def __str__(self):
         return f"{self.title} ({self.year})"
+
+
+class BookForm(ModelForm):
+    class Meta:
+        model = Book
+        fields = ['title', 'year', 'authors']

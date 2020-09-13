@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('<int:book_id>/', views.book),
+    path('create/', views.book_form)
 ]
